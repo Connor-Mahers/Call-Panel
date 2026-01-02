@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Panel</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:20px;
+      padding:20px;
+      height:100vh;
+      box-sizing:border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    a.btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      text-decoration:none;
+      font-size:42px;
+      font-weight:800;
+      border-radius:20px;
+      border:none;
+      background:#ff3b7d;
+      color:#fff;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a.btn:active{ transform:scale(0.97); }
+
+    a.emergency{
+      background:#d40000;
+      grid-column:span 2;
+      font-size:56px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- UK mobiles converted to international format (+44...) for maximum iOS compatibility -->
+  <a class="btn" href="tel:+447884331993">CALL RAYMOND</a>
+  <a class="btn" href="tel:REPLACE_WITH_GIL_NUMBER">CALL GIL</a>
+  <a class="btn" href="tel:+447379226513">CALL SAM</a>
+  <a class="btn" href="tel:+447538417087">CALL LAURA</a>
+  <a class="btn" href="tel:REPLACE_WITH_KATE_NUMBER">CALL KATE</a>
+  <a class="btn" href="tel:REPLACE_WITH_DOM_NUMBER">CALL DOM</a>
+
+  <a class="btn" href="tel:+447766093145">CALL CONNOR</a>
+
+  <!-- 999 uses JS confirm, then redirects -->
+  <a class="btn emergency" href="#" onclick="return confirm999(event)">CALL 999</a>
+
+  <script>
+    function confirm999(e){
+      e.preventDefault();
+      if (confirm('Call emergency services (999)?')) {
+        window.location.href = 'tel:999';
+      }
+      return false;
+    }
+  </script>
+
+</body>
+</html>
